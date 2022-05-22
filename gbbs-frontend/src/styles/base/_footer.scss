@@ -1,0 +1,49 @@
+@import '../config/config';
+
+#footer{
+    background-color: hsla(0, 0%, 0%, 0.530) ;
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background-color: $color-secondary;
+    }
+
+    
+
+    .container-lg{
+        .footerContainer{
+
+            flex-direction: column-reverse;
+
+            @media (min-width: 992px) {
+                flex-direction: row;
+            }
+
+            .footerMap{
+                height: 170px;
+            }
+
+            .footerTitle{
+                h6{
+                    font-weight: normal;
+                    font-size: 20px;
+                }
+            }
+
+            .footerLinks{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img{
+                    width: 100px;
+                }
+            }
+        }
+    }
+}

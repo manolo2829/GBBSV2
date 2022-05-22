@@ -1,0 +1,215 @@
+@import '../config/config';
+
+#login{
+    background-color: $color-secondary;
+    padding: 100px 0;
+    @media (max-width: 992px){
+        padding: 50px 0;
+
+    }
+
+    .container-md{
+        max-width: 800px;
+        position: relative;
+
+        .backgroundContainer{
+        
+            padding: 10px 20px;
+            backdrop-filter: blur(5px);
+            background-color: rgba(45, 113, 208, 0.5) ;
+
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                margin: 70px 0px;
+                color: rgb(255, 255, 255);
+                transition: all 300ms;
+
+                @media (max-width: 992px){
+                    margin: 100px 0;
+                }
+
+                p{
+                    margin-top: 30px;
+                }
+
+                button{
+                    margin-top: 30px;
+                    padding: 10px 40px;
+                    border: 2px solid #fff;
+                    background: transparent;
+                    font-size: 15px ;
+                    font-weight: 600;
+                    cursor: pointer;
+                    color: white;
+                    outline: none;
+                    transition: all 500ms;
+
+                    &:hover{
+                        background: white;
+                        color:rgb(0, 47, 113)
+                    }
+                }
+
+                h3{
+                    font-weight: 400;
+                    font-size: 26px;
+                }
+            }
+
+
+            .backgroundContainerLogin{
+
+            }
+
+            .backgroundContainerSignIn{
+
+            }
+        }
+
+        .formsContainer{
+            display: flex;
+            align-items: center;
+            width: 50%;
+            position: absolute;
+            left: 0;
+            top: 50%;
+
+            @media (max-width: 992px){
+                width: 90%;
+                left: 0;
+                right: 0;
+                top: 25%;
+                margin: auto;
+                
+            }
+
+            &.toRegister{
+                @media (min-width: 992px){
+                    animation-name: toRegister;
+                    animation-duration: 2s;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+
+                animation-name: toRegisterPhone;
+                animation-duration: 2s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+
+                
+
+                .formLogin{
+                    display: none;
+                }
+
+                .formRegister{
+                    display: block;
+                }
+            }
+
+            &.toLogin{
+
+                animation-name: toLoginPhone;
+                animation-duration: 2s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+
+                @media (min-width: 992px){
+                    animation-name: toLogin;
+                    animation-duration: 2s;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+            }   
+
+            form{
+                width: 100%;
+                padding: 80px 20px;
+                background: white;
+                position: absolute;
+                border-radius: 20px;
+                transition: all 2s;
+
+                h2{
+                    font-size: 30px;
+                    margin-bottom: 20px;
+                    text-align: center;
+                    color:rgba(45, 113, 208, 0.5)
+                }
+
+                input{
+                    width: 100%;
+                    margin-top: 15px;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    background: #f2f2f2;
+                    font-size: 14px;
+                    overflow: none;
+                }
+
+                button{
+                    padding: 10px 40px;
+                    margin-top: 45px;
+                    font-size: 15px;
+                    border: none;
+                    border-radius: 5px;
+                    background: rgba(45, 113, 208, 0.5);
+                    color:rgb(0, 47, 113);
+                    cursor: pointer;
+                    outline: none;
+                }
+            }
+            .formLogin{
+                display: block;
+            }
+
+            .formRegister{
+                display: none;
+            }
+        }
+    }
+}
+
+@keyframes toRegister {
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+    
+}
+
+@keyframes toRegisterPhone {
+    from{
+        top: 25%;
+    }
+    to{
+        top: 75%;
+    }
+    
+}
+
+@keyframes toLoginPhone {
+    from{
+        top: 75%;
+    }
+    to{
+        top: 25%;
+    }
+    
+}
+
+@keyframes toLogin {
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+    
+}

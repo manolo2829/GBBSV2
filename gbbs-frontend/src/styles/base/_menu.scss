@@ -1,0 +1,53 @@
+@import '../config/config';
+
+#header{
+    height: 55px;
+
+    .menu{
+        
+
+        .container-lg{
+            
+            
+            .navTitle{
+                color: #000;
+                font-weight: bold;
+            }
+
+            .navLogo{
+                height: 40px;
+                width: 60px;
+                object-fit: cover;
+            }
+
+            .navListContainer{
+                .navbar-nav{
+
+                    .nav-item{
+
+                        @media (max-width: 992px) {
+                            &:hover{
+                                background-color: rgb(230, 230, 230);
+                            }
+    
+                        }
+                        .nav-link{
+                            color: #000;
+                            &:hover{
+                                text-decoration: underline;
+
+                            }
+                        }
+    
+                        .active{
+                            text-decoration: underline;
+                        }
+                    }
+
+                }
+            }
+        }
+
+    }
+    
+}

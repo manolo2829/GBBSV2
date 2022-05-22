@@ -1,0 +1,105 @@
+@import '../config/config';
+
+#objetoForo{
+    background-color: $color-secondary;
+    .container-lg{
+        max-width: 1024px;
+
+        .foroTitle{
+            h2{
+                font-weight: normal;
+            }
+        }
+
+        .foroMain{
+            .foroHeader{
+
+                color: #fff;
+                svg{
+                    color: green;
+                }
+
+                a{
+                    text-decoration: none;
+                    padding: 0 5px ;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .foroContent{
+                .contentHeader{
+                    color: $color-secondary;
+                    h3{
+                        font-size: 18px;
+                    }
+                    h4{
+                        font-size: 18px;
+                    }
+
+                    @media (min-width:992px) {
+                        h3{
+                            font-size: 22px;
+                        }
+                        h4{
+                            font-size: 22px;
+                        }
+                    }
+                    
+                }
+
+                .contentMain{
+                    .mainText{
+                        border-left: 2px solid $color-primary;
+                    }
+                    .mainImg{
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+                }
+
+            }
+
+            .foroContentChild{
+                .foroContainer{
+                    border-left: 2px solid $color-primary;
+
+                    .contentHeader{
+                        color: $color-secondary;
+                        h3{
+                            font-size: 18px;
+                        }
+                        h4{
+                            font-size: 18px;
+                        }
+    
+                        @media (min-width:992px) {
+                            h3{
+                                font-size: 22px;
+                            }
+                            h4{
+                                font-size: 22px;
+                            }
+                        }
+                        
+                    }
+    
+                    .contentMain{
+                        .mainImg{
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

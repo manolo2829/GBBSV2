@@ -1,0 +1,103 @@
+@import '../config/config';
+
+#foros{
+    background-color: $color-secondary;
+
+    .container-lg{
+        .forosTitle{
+            font-weight: 36px;
+            font-weight: normal;
+        }
+
+        .row{
+            .forosNavbarPhone{
+                top: 100px;
+                z-index: 1;
+
+                .listInput{
+                    justify-content: space-between;
+                        align-items: center;
+
+                        form{
+                            width: 90%;
+                            @media (min-width:992px) {
+                                width: 100%;
+                            }
+                            
+                        }
+
+                        .barsInput{
+                            @media (min-width:992px) {
+                                display: none;
+                            }
+                            margin-left: 10px;
+                        }
+                }
+
+                .listCollapse{
+                    position: relative;
+                    top: -100%;
+                    display: none;
+                    
+                }
+
+                .listCollapse--show{
+                    
+                    animation-name: showNav;
+                    animation-duration: 2s;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+            }
+
+            .forosSidebarContainer{
+                .forosSidebar{
+                    top: 100px;
+
+                    .listInput{
+                        justify-content: space-between;
+                        align-items: center;
+
+                        form{
+                            width: 93%;
+                            @media (min-width:992px) {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .forosContent{
+                .row{
+                    .card{
+                        cursor: pointer;
+                        transition: all .5s;
+                        &:hover{
+                            transform: scale(1.02);
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+    
+    .img-fluid{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@keyframes showNav{
+    0%{
+        top: -100%;
+        display: none;
+    }
+    100%{
+        top: 0;
+        display: flex;
+    }
+}
