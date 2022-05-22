@@ -1,0 +1,6 @@
+
+//react
+npm i react-router-dom sass sweetalert2 axios universal-cookie
+
+//node
+npm i express bcryptjs cookie-parser dotenv jsonwebtoken mysql2 sequelize cors
