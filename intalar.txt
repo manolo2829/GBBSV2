@@ -1,3 +1,9 @@
+//pc
+nodejs
+
+npm install -g nodemon
+
+
 //sql
 
 crear una base de datos llamada gbbs
@@ -13,7 +19,7 @@ una tabla llamada users
 
 //react
 npm install
-npm i react-router-dom sass sweetalert2 axios universal-cookie
+npm i react-router-dom sass sweetalert2 axios universal-cookie @fortawesome/free-brands-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome bootstrap
 
 
 //node
