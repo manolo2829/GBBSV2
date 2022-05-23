@@ -49,31 +49,46 @@ const Login = () => {
     const login = async (e) => {
         e.preventDefault()
         console.log(username + ' - ' +password)
-        const res = await Axios.get(URI+username+'/'+password)
-        const alert = res.data.alert
-        const cookie = res.data.cookie
-        cookies.set(cookie.name, cookie.token, { path: '/', expires: new Date(Date.now()+ 90 * 24 * 60 * 60 * 1000 ) });
-        
-        
-        if(alert.alert === true){
+        if(username === '' || password === ''){
             Swal.fire({
-                title: alert.alertTitle,
-                text: alert.alertMessage,
-                icon: alert.alertIcon,
-                showConfirmButton: alert.showConfirmButton,
-                timer: alert.timer
-            }).then(() => {
-                window.location = alert.ruta
+                title: 'Error',
+                text: 'Complete los campos',
+                icon: 'error',
+                showConfirmButton: true
             })
-
         }else{
-            Swal.fire({
-                title: alert.alertTitle,
-                text: alert.alertMessage,
-                icon: alert.alertIcon,
-                showConfirmButton: alert.showConfirmButton,
-                timer: alert.timer
-            })
+            const res = await Axios.get(URI+username+'/'+password)
+            const alert = res.data.alert
+            console.log(res.data.alert)
+            const cookie = res.data.cookie
+            console.log(res.data.cookie)
+            try{
+                cookies.set(cookie.name, cookie.token, { path: '/', expires: new Date(Date.now()+ 90 * 24 * 60 * 60 * 1000 ) });
+            }catch(error){
+                console.log('no hay usuario')
+            }
+            
+            
+            if(alert.alert === true){
+                Swal.fire({
+                    title: alert.alertTitle,
+                    text: alert.alertMessage,
+                    icon: alert.alertIcon,
+                    showConfirmButton: alert.showConfirmButton,
+                    timer: alert.timer
+                }).then(() => {
+                    window.location = alert.ruta
+                })
+
+            }else{
+                Swal.fire({
+                    title: alert.alertTitle,
+                    text: alert.alertMessage,
+                    icon: alert.alertIcon,
+                    showConfirmButton: alert.showConfirmButton,
+                    timer: alert.timer
+                })
+            }
         }
     }
 

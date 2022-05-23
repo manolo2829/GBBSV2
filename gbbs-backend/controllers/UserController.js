@@ -42,7 +42,7 @@ export const createUser = async(req, res) => {
     }
 }
 
-export const login = async(req, res) => {
+export const login = async(req, res, next) => {
 
     try {
         
@@ -52,26 +52,32 @@ export const login = async(req, res) => {
         console.log(`intentando logear a ${username} - ${password}`)
 
         if(!username || !password){
+            console.log('no hay datos')
             res.json( {
-                alert:false,
-                alertTitle: 'Advertencia',
-                alertMessage: '¡Complete los campos!',
-                alertIcon: 'info',
-                showConfirmButton: true,
-                timer: false
+                "alert" : {
+                    alert:false,
+                    alertTitle: 'Advertencia',
+                    alertMessage: '¡Complete los campos!',
+                    alertIcon: 'info',
+                    showConfirmButton: true,
+                    timer: false
+                }
             })
         }else{
             const user = await UserModel.findAll({
                 where:{username:username}
             })
             if(user.length === 0 || !(await bcryptjs.compare(password, user[0].password))){
+                console.log('datos incorrectos')
                 res.json({
-                    alert:false,
-                    alertTitle: 'Error',
-                    alertMessage: 'Usuario y/o Password incorrectas',
-                    alertIcon: 'error',
-                    showConfirmButton: true,
-                    timer: false
+                    "alert": {
+                        alert:false,
+                        alertTitle: 'Error',
+                        alertMessage: 'Usuario y/o Password incorrectas',
+                        alertIcon: 'error',
+                        showConfirmButton: true,
+                        timer: false
+                    }
                 })
             }else{
                 const id = user[0].id
@@ -86,6 +92,8 @@ export const login = async(req, res) => {
                     expires: new Date(Date.now()+ 90 * 24 * 60 * 60 * 1000 ),
                     httpOnly: true
                 }
+
+                console.log('logeado')
 
                 res.json({
                     "alert": {
@@ -108,7 +116,16 @@ export const login = async(req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.json(error.message)
+        res.json({
+            "alert": {
+                alert:false,
+                alertTitle: 'Error',
+                alertMessage: error.message,
+                alertIcon: 'error',
+                showConfirmButton: true,
+                timer: false
+            }
+        })
         
     }
 }
