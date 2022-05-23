@@ -1,6 +1,20 @@
+//sql
+
+crear una base de datos llamada gbbs
+una tabla llamada users
+    campos:
+        id : int auto_increment
+        email : varchar 255
+        username : varchar 100
+        password : varchar 255
+        createdAt : date
+        updatedAt :  date
+
 
 //react
+npm install
 npm i react-router-dom sass sweetalert2 axios universal-cookie
+
 
 //node
 npm i express bcryptjs cookie-parser dotenv jsonwebtoken mysql2 sequelize cors
