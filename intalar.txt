@@ -19,7 +19,7 @@ una tabla llamada users
 
 //react
 npm install
-npm i react-router-dom sass sweetalert2 axios universal-cookie @fortawesome/free-brands-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome bootstrap
+npm i react-router-dom sass sweetalert2 axios universal-cookie @fortawesome/free-brands-svg-icons @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome  @fortawesome/fontawesome-svg-core bootstrap
 
 
 //node
